@@ -1,28 +1,39 @@
 BoxLayout:
     orientation: 'vertical'
+    Label:
+        id: output_label
+        font_size: 48
+        text: 'Trip location'
+        color: (1, 1, 0, 1)
+
     BoxLayout:
         orientation: 'horizontal'
-        BoxLayout:
-            orientation: 'vertical'
-            size_hint_x: 0.5
-            Button:
-                text: 'choose country'
+
+        GridLayout:
+            #size: root.size
+            cols: 2
+            rows: 2
+
+            Spinner:
+                id: country_selection
+                text: app.current_country
+                # values takes a list - could be a literal here or variable in app
+                values: app.country_codes
+                # on_text is the event (not on_release) when the text updates (spinner option is selected)
+                # note that on_text runs even when the text is set for the very first time
+                on_text: app.change_country(self.text)
+
+            TextInput:
+                id: input_amount
+                text: '1'
+                font_size: 40
 
             Label:
-                id: output_label
-                font_size: 20
                 text: 'Australia'
-                color: (1, 1, 0, 1)
-
-        TextInput:
-            id: input_amount
-            text: ''
-            font_size: 48
-
-        TextInput:
-            id: input_amount
-            text: ''
-            font_size: 48
+            TextInput:
+                id: input_amount
+                text: '2'
+                font_size: 40
 
     Label:
         id: output_label
