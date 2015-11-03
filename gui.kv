@@ -1,0 +1,31 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.5
+            Button:
+                text: 'choose country'
+
+            Label:
+                id: output_label
+                font_size: 20
+                text: 'Australia'
+                color: (1, 1, 0, 1)
+
+        TextInput:
+            id: input_amount
+            text: ''
+            font_size: 48
+
+        TextInput:
+            id: input_amount
+            text: ''
+            font_size: 48
+
+    Label:
+        id: output_label
+        font_size: 48
+        text: 'Todays date is:'
+        color: (1, 1, 0, 1)
