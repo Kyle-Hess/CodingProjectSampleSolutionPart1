@@ -46,6 +46,7 @@ class Error(Exception):
     def __str__(self):
         return repr(self.value)
 
+
 if __name__ == '__main__':
     from currency import get_details
     import time

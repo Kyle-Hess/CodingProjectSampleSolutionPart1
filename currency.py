@@ -46,6 +46,26 @@ def get_details(country_name):
     file.close()
     return ()
 
+def get_all_details(country_name):
+# country_name = input("enter in country name:")
+    details_dict = {}
+    details_dict ["Australia"] = 0, 1, 2
+    details_dict ["United States"] = 0, 1, 2
+    #Belgium
+    #Cyprus
+    #Japan
+    file = open("currency_details.txt", "r", encoding="utf8")
+    for line in file:
+        if details_dict in line:
+            parts = line.split(',')
+            country = parts[0]
+            currency = parts[1]
+            symbol = parts[2].rstrip()
+            print(country, currency, symbol)
+            # else:
+            # return("Error, no country called " + country_name)
+    file.close()
+    print ()
 
 if __name__ == '__main__':
     def conversion_test(amount, source, target):

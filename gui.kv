@@ -1,14 +1,13 @@
 BoxLayout:
     orientation: 'vertical'
     Label:
-        id: output_label
-        font_size: 48
-        text: 'Trip location'
+        id: trip_location
+        font_size: 40
+        text: "Current Trip location:"
         color: (1, 1, 0, 1)
 
     BoxLayout:
         orientation: 'horizontal'
-
         GridLayout:
             #size: root.size
             cols: 2
@@ -25,18 +24,37 @@ BoxLayout:
 
             TextInput:
                 id: input_amount
-                text: '1'
+                values:
+                text: '0'
                 font_size: 40
 
             Label:
                 text: 'Australia'
+                id: home_country
             TextInput:
-                id: input_amount
-                text: '2'
+                id: home_amount
+                text: '0'
                 font_size: 40
 
     Label:
-        id: output_label
-        font_size: 48
+        id: today_date
+        font_size: 40
         text: 'Todays date is:'
         color: (1, 1, 0, 1)
+
+    BoxLayout:
+        orientation: 'horizontal'
+        GridLayout:
+            cols:2
+            rows:1
+            Label:
+                text: 'Status Message'
+                size_hint: None, None
+                size: 200, 40
+                color: 1, 0, 1, 1
+            Button:
+                background_color: 1, 1, 2, 1
+                text: 'Update'
+                color: (1, 0, 1, 1)
+                size_hint: None, None
+                size: 150, 40
