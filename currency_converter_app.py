@@ -1,5 +1,7 @@
 __author__ = 'Kyle'
-from currency import get_all_details
+#from currency import get_all_details
+
+
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.properties import StringProperty
@@ -11,6 +13,8 @@ Config.set('graphics', 'width', '350')
 Config.set('graphics', 'height', '700')
 
 COUNTRIES = {'United States': "USD", 'Belgium': "EUR", 'Cyprus': "EUR", 'Japan': "JPY"}
+config_dict = {}
+
 
 
 
@@ -38,7 +42,18 @@ class CurrencyConverterApp(App):
 
     inputamount = TextInput(text='', multiline=False)
     inputamount.bind(on_text_validate=on_enter)
-    
+
+    def config_file(self,):
+        config_dict = {}
+
+        with open("config.txt", 'r', encoding="utf8") as file:
+            for line in file:
+                items = line.split()
+                country, details = items[0], items[1:]
+                config_dict[country] = details
+        return config_dict
+
+
     #def __init__(self, trip_detais):
         #pass
 
@@ -52,8 +67,8 @@ class CurrencyConverterApp(App):
         result = value
 
     def date(self):
+        #self.root.ids.today_date.text
         pass
-
 CurrencyConverterApp().run()
 
 
