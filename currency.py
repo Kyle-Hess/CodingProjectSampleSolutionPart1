@@ -57,6 +57,7 @@ def get_all_details(country_name):
                     details_dict.update({parts[0]: '{} ({})'.format(parts[1], parts[2])})
     return details_dict
 
+'''
 if __name__ == '__main__':
     def conversion_test(amount, source, target):
         converted_amount = convert(amount, source, target)
@@ -98,3 +99,9 @@ if __name__ == '__main__':
     print_details_test('valid details', 'Australia', get_details("Australia"))
     print_details_test('valid details', 'Japan', get_details("Japan"))
     print_details_test('valid details', 'Hong Kong', get_details("Hong Kong"))
+
+print(config_file())
+print(get_all_details(config_file()))
+print(get_home())
+
+    '''

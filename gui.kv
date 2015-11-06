@@ -2,8 +2,9 @@ BoxLayout:
     orientation: 'vertical'
     Label:
         id: trip_location
-        font_size: 40
-        text: "Current Trip location:"
+        values: app.trip_location
+        font_size: 30
+        text: ''
         color: (1, 1, 0, 1)
 
     BoxLayout:
@@ -13,31 +14,36 @@ BoxLayout:
             cols: 2
             rows: 2
 
+            #country selection
             Spinner:
                 id: country_selection
-                text: app.current_country
+                text: ''
                 # values takes a list - could be a literal here or variable in app
-                values: app.country_codes
+                values: app.spinner_countries
                 # on_text is the event (not on_release) when the text updates (spinner option is selected)
                 # note that on_text runs even when the text is set for the very first time
-                on_text: app.change_country(self.text)
+
 
             TextInput:
-                id: input_amount
+                id: target_amount
                 values:
-                text: '0'
-                font_size: 40
-
+                text: ''
+                on_enter: app.convert_to_home
+                font_size: 20
+            #home Country
             Label:
-                text: 'Australia'
+                text: 'app.get_home()'
                 id: home_country
             TextInput:
                 id: home_amount
-                text: '0'
-                font_size: 40
+                values:
+                text: ''
+                on_enter: app. convert_from_home
+                font_size: 20
 
     Label:
         id: today_date
+        values:
         font_size: 30
         text: "Today's Date:"
         color: (1, 1, 0, 1)
@@ -48,13 +54,14 @@ BoxLayout:
             cols:2
             rows:1
             Label:
+                id: Status_label
                 text: 'Status Message'
                 size_hint: None, None
                 size: 200, 40
-                color: 1, 0, 1, 1
+                color: 0, 0, 1, 1
             Button:
                 background_color: 1, 1, 2, 1
                 text: 'Update'
-                color: (1, 0, 1, 1)
+                color: (0, 0, 1, 1)
                 size_hint: None, None
                 size: 150, 40
