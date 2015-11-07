@@ -49,13 +49,14 @@ def get_details(country_name):
 
 def get_all_details(country_name):
     details_dict = {}
-    with open('currency_details.txt',encoding='utf-8') as file:
+    with open('currency_details.txt', encoding='utf-8') as file:
         for line in file:
             parts = line.strip().split(',')
             for country in country_name:
                 if parts[0] == country:
                     details_dict.update({parts[0]: '{} ({})'.format(parts[1], parts[2])})
     return details_dict
+
 
 '''
 if __name__ == '__main__':
